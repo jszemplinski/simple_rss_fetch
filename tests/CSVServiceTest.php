@@ -74,19 +74,23 @@ final class CSVServiceTest extends TestCase {
         $this->assertEquals($line, $columns);
 
         // Go through remaining lines and make sure they match mock data.
+        $rows = array();
         for($i = 0; $i < count($data); $i++) {
             $line = fgets($file);
             $line = array_map("trim", explode(",", $line));
-
-            $this->assertEquals($line, $data[$i]);
+            array_push($rows, $line);
         }
 
+        $this->assertEquals($rows, $data);
+
+        $rows = array();
         for($i = 0; $i < count($dataNew); $i++) {
             $line = fgets($file);
             $line = array_map("trim", explode(",", $line));
-
-            $this->assertEquals($line, $dataNew[$i]);
+            array_push($rows, $line);
         }
+
+        $this->assertEquals($rows, $dataNew);
 
         fclose($file);
     }
