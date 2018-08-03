@@ -7,9 +7,7 @@
     "authors": [
         {
             "name": "Jacek Szemplinski",
-            "email": "j.szemplinski@wp.eu",
-            "homepage": "http://jszemplinski.com",
-            "role": "Developer"
+            "email": "j.szemplinski@wp.eu"
         }
     ],
     "require": {
@@ -17,7 +15,6 @@
         "ext-SimpleXML": "*"
     },
     "require-dev": {
-        "mockery/mockery": "dev-master@dev",
         "phpunit/phpunit": "^7",
         "mikey179/vfsStream": "~1"
     },
