@@ -1,6 +1,6 @@
 <?php
 
-namespace JacekSzemplinski\tests;
+namespace JacekSzemplinski\test;
 
 use JacekSzemplinski\src\services\CSVService;
 use org\bovigo\vfs\vfsStream;
