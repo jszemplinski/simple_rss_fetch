@@ -1,0 +1,29 @@
+{
+    "name": "jszemplinski/simple-rss-fetch",
+    "description": "An RSS fetch created as a recruitment task",
+    "keywords": ["rss", "fetch", "atom", "cli"],
+    "homepage": "https://github.com/jszemplinski/rss-fetch-cli",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jacek Szemplinski",
+            "email": "j.szemplinski@wp.eu",
+            "homepage": "http://jszemplinski.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.2",
+        "ext-SimpleXML": "*"
+    },
+    "require-dev": {
+        "mockery/mockery": "dev-master@dev",
+        "phpunit/phpunit": "^7",
+        "mikey179/vfsStream": "~1"
+    },
+    "autoload": {
+        "psr-4": {
+            "JacekSzemplinski\\src\\": ["src", "tests"]
+        }
+    }
+}
