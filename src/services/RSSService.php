@@ -3,18 +3,25 @@
 namespace JacekSzemplinski\src\services;
 
 
+use ErrorException;
+
 class RSSService {
 
     public function getDataFromFeed($feedUrl) {
+        set_error_handler(
+            function($severity, $message, $file, $line) {
+                throw new ErrorException($message, $severity, $severity, $file, $line);
+            }
+        );
+
         try {
             $content = file_get_contents($feedUrl);
-            if (!$content) {
-                return NULL;
-            }
             $xml = new \SimpleXMLElement($content);
-        } catch (\Exception $e) {
+        } catch(\Exception $e) {
             return NULL;
         }
+
+        restore_error_handler();
 
         $data = array();
 
