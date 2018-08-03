@@ -1,4 +1,4 @@
-Package Skeleton
+Simple RSS Fetch
 ================
 - [Installation](#installation)
 - [Usage](#usage)
