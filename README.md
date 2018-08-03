@@ -9,9 +9,12 @@ Package Skeleton
 Installation
 ------------
 
-First, clone the repository:
+First, clone the repository and cd into newly created directory:
 
-`git clone https://github.com/jszemplinski/simple_rss_fetch.git`
+`git clone https://github.com/jszemplinski/simple_rss_fetch.git
+
+cd simple_rss_fetch`
+
 
 Then, install all required dependencies listed in `composer.json`:
 
