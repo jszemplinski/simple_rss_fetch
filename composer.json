@@ -2,7 +2,7 @@
     "name": "jszemplinski/simple-rss-fetch",
     "description": "An RSS fetch created as a recruitment task",
     "keywords": ["rss", "fetch", "atom", "cli"],
-    "homepage": "https://github.com/jszemplinski/rss-fetch-cli",
+    "homepage": "https://github.com/jszemplinski/simple_rss_fetch",
     "license": "MIT",
     "authors": [
         {
