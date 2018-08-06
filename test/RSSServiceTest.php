@@ -5,13 +5,16 @@ namespace JacekSzemplinski\test;
 use JacekSzemplinski\src\services\RSSService;
 use PHPUnit\Framework\TestCase;
 
-final class RSSServiceTest extends TestCase {
+final class RSSServiceTest extends TestCase
+{
 
-    private function getRSSService() {
+    private function getRSSService()
+    {
         return new RSSService();
     }
 
-    public function testItGetsDataFromFeedAndStoresItInArray() {
+    public function testItGetsDataFromFeedAndStoresItInArray()
+    {
         // Instantiate RSS Service.
         $service = $this->getRSSService();
 
@@ -22,7 +25,8 @@ final class RSSServiceTest extends TestCase {
         $this->assertTrue(is_array($data));
     }
 
-    public function testItReturnsNullIfItCannotFindFeed() {
+    public function testItReturnsNullIfItCannotFindFeed()
+    {
         // Instantiate RSS Service.
         $service = $this->getRSSService();
 

@@ -6,24 +6,27 @@ use JacekSzemplinski\src\services\CSVService;
 use org\bovigo\vfs\vfsStream;
 use PHPUnit\Framework\TestCase;
 
-final class CSVServiceTest extends TestCase {
-
+final class CSVServiceTest extends TestCase
+{
     private $root;
     private $directory;
 
 
-    public function setUp() {
+    public function setUp()
+    {
         $this->root = vfsStream::setup("CSVtestdir");
         $this->directory = "vfs://CSVtestdir/";
     }
 
 
-    private function getCSVService() {
+    private function getCSVService()
+    {
         return new CSVService();
     }
 
 
-    public function testItCreatesCSVFromGivenData() {
+    public function testItCreatesCSVFromGivenData()
+    {
         // Instantiate our CSVService.
         $service = $this->getCSVService();
 
@@ -42,7 +45,7 @@ final class CSVServiceTest extends TestCase {
 
         $file = fopen($this->directory . $filename, "r");
 
-        while($line = fgets($file)) {
+        while ($line = fgets($file)) {
             // Each row should have equal number of columns.
             $this->assertEquals(count(explode(",", $line)), count($columns));
         }
@@ -51,7 +54,8 @@ final class CSVServiceTest extends TestCase {
     }
 
 
-    public function testItAppendsDataToExistingCSV() {
+    public function testItAppendsDataToExistingCSV()
+    {
         // Instantiate our CSV Service.
         $service = $this->getCSVService();
         $filename = "exampleFilename.csv";
@@ -75,7 +79,7 @@ final class CSVServiceTest extends TestCase {
 
         // Go through remaining lines and make sure they match mock data.
         $rows = array();
-        for($i = 0; $i < count($data); $i++) {
+        for ($i = 0; $i < count($data); $i++) {
             $line = fgets($file);
             $line = array_map("trim", explode(",", $line));
             array_push($rows, $line);
@@ -84,7 +88,7 @@ final class CSVServiceTest extends TestCase {
         $this->assertEquals($rows, $data);
 
         $rows = array();
-        for($i = 0; $i < count($dataNew); $i++) {
+        for ($i = 0; $i < count($dataNew); $i++) {
             $line = fgets($file);
             $line = array_map("trim", explode(",", $line));
             array_push($rows, $line);
@@ -96,7 +100,8 @@ final class CSVServiceTest extends TestCase {
     }
 
 
-    public function testItDoesNotCreateNewFileInExtendedMode() {
+    public function testItDoesNotCreateNewFileInExtendedMode()
+    {
         // Instantiate our CSVService.
         $service = $this->getCSVService();
         $filename = "exampleFilename.csv";
@@ -109,11 +114,12 @@ final class CSVServiceTest extends TestCase {
     }
 
 
-    private function getMockRows($colCount, $rowCount) {
+    private function getMockRows($colCount, $rowCount)
+    {
         $rows = array();
-        for($i = 0; $i < $rowCount; $i++) {
+        for ($i = 0; $i < $rowCount; $i++) {
             $row = array();
-            for($j = 0; $j < $colCount; $j++) {
+            for ($j = 0; $j < $colCount; $j++) {
                 array_push($row, "$j");
             }
             array_push($rows, $row);

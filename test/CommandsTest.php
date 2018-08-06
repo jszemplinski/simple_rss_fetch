@@ -5,13 +5,16 @@ namespace JacekSzemplinski\test;
 use JacekSzemplinski\src\Commands;
 use PHPUnit\Framework\TestCase;
 
-final class CommandsTest extends TestCase {
+final class CommandsTest extends TestCase
+{
 
-    private function getCommandsInstance() {
+    private function getCommandsInstance()
+    {
         return new Commands();
     }
 
-    public function testItCanRunCommandIfItIsAvailable() {
+    public function testItCanRunCommandIfItIsAvailable()
+    {
         $instance = $this->getCommandsInstance();
 
         $args = array("", "csv:simple", "url", "path");
@@ -20,7 +23,8 @@ final class CommandsTest extends TestCase {
         $this->assertTrue($result);
     }
 
-    public function testItWillNotExecuteCommandIfItDoesNotExist() {
+    public function testItWillNotExecuteCommandIfItDoesNotExist()
+    {
         $instance = $this->getCommandsInstance();
 
         $args = array("nonexistingcommand123");
@@ -29,7 +33,8 @@ final class CommandsTest extends TestCase {
         $this->assertFalse($result);
     }
 
-    public function testItWillNotExecuteCommandIfItLacksArguments() {
+    public function testItWillNotExecuteCommandIfItLacksArguments()
+    {
         $instance = $this->getCommandsInstance();
 
         // Just a command name, no arguments
